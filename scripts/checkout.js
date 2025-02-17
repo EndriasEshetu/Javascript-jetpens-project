@@ -1,4 +1,4 @@
-import { cart } from "../data/cart.js";
+import { cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrrency } from "./utils/money.js";
 
@@ -40,7 +40,9 @@ cart.forEach((cartItem) => {
             <span class="update-quantity-link link-primary">
               Update
             </span>
-            <span class="delete-quantity-link link-primary">
+            <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${
+              matchingProduct.id
+            }">
               Delete
             </span>
           </div>
@@ -91,3 +93,8 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector(".js-order-summery").innerHTML = cartSummeryHTML;
+
+document.querySelectorAll(".js-delete-link").forEach((link) => {
+  const productId = link.CDATA_SECTION_NODE.productId;
+  removeFromCart(productId);
+});
