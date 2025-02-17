@@ -36,6 +36,14 @@ export function addToCart(productId) {
 
   saveToStorage();
 }
+export function calculateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  return cartQuantity;
+}
 
 export function removeFromCart(productId) {
   const newCart = [];
