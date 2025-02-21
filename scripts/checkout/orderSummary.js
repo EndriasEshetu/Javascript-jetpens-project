@@ -14,7 +14,7 @@ import {
 import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary() {
-  let cartSummeryHTML = "";
+  let cartSummaryHTML = "";
 
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
@@ -29,8 +29,8 @@ export function renderOrderSummary() {
     const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
     const dateString = deliveryDate.format("dddd, MMMM D");
 
-    cartSummeryHTML += `
-   <div class="cart-item-container js-cart-item-container-${
+    cartSummaryHTML += `
+   <div class="cart-item-container js-cart-item-container js-cart-item-container-${
      matchingProduct.id
    }">
       <div class="delivery-date">Delivery date: ${dateString}
@@ -114,7 +114,7 @@ export function renderOrderSummary() {
     return html;
   }
 
-  document.querySelector(".js-order-summery").innerHTML = cartSummeryHTML;
+  document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 
   document.querySelectorAll(".js-delete-link").forEach((link) => {
     link.addEventListener("click", () => {
@@ -141,6 +141,8 @@ export function renderOrderSummary() {
     });
   });
 
+  updateCartQuantity();
+
   function updateCartQuantity() {
     const cartQuantity = calculateCartQuantity();
 
@@ -148,6 +150,4 @@ export function renderOrderSummary() {
       ".js-return-to-home-link"
     ).innerHTML = `${cartQuantity} items`;
   }
-
-  updateCartQuantity();
 }
