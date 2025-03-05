@@ -26,13 +26,9 @@
   width: 150px;
 }
 
-.amazon-logo {
-  width: 100px;
+.jetpens-logo {
+  width: 150px;
   margin-top: 12px;
-}
-
-.amazon-mobile-logo {
-  display: none;
 }
 
 /* @media is used to create responsive design (making the
@@ -43,51 +39,25 @@
   .checkout-header-left-section {
     width: auto;
   }
-
-  .amazon-logo {
-    display: none;
-  }
-
-  .amazon-mobile-logo {
-    display: inline-block;
-    height: 35px;
-    margin-top: 5px;
-  }
 }
-
-.checkout-header-middle-section {
-  flex: 1;
-  flex-shrink: 0;
+.page-title {
   text-align: center;
-
-  font-size: 25px;
-  font-weight: 500;
-
-  display: flex;
-  justify-content: center;
 }
-
 .return-to-home-link {
   color: rgb(0, 113, 133);
-  font-size: 23px;
+  font-size: 25px;
   text-decoration: none;
   cursor: pointer;
 }
 
 @media (max-width: 1000px) {
-  .checkout-header-middle-section {
+  .page-title {
     font-size: 20px;
     margin-right: 60px;
   }
 
   .return-to-home-link {
     font-size: 18px;
-  }
-}
-
-@media (max-width: 575px) {
-  .checkout-header-middle-section {
-    margin-right: 5px;
   }
 }
 
@@ -100,4 +70,12 @@
   .checkout-header-right-section {
     width: auto;
   }
+}
+.header-line {
+  border-color: grey;
+  border-width: 5px;
+  border-style: none;
+  border-top-style: dotted;
+  width: 100%;
+  margin-bottom: 20px;
 }

@@ -137,7 +137,7 @@ export function loadProducts(fun) {
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "images/pens/beginner.jpg",
+    image: "images/pens/bags.jpg",
     name: "JetPens Hobonichi Techo Recommended Pens Sampler",
     rating: {
       stars: 4.5,
@@ -186,7 +186,7 @@ export const products = [
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    image: "images/products/6-piece-white-dinner-plate-set.jpg",
+    image: "images/pens/gear-slim.jpg",
     name: "6 Piece White Dinner Plate Set",
     rating: {
       stars: 4,
@@ -197,7 +197,7 @@ export const products = [
   },
   {
     id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-    image: "images/products/6-piece-non-stick-baking-set.webp",
+    image: "images/pens/hobonich.jpg",
     name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
     rating: {
       stars: 4.5,
@@ -208,7 +208,7 @@ export const products = [
   },
   {
     id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
-    image: "images/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
+    image: "images/pens/safari.jpg",
     name: "Plain Hooded Fleece Sweatshirt",
     rating: {
       stars: 4.5,
@@ -219,7 +219,7 @@ export const products = [
   },
   {
     id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    image: "images/products/luxury-tower-set-6-piece.jpg",
+    image: "images/pens/twsbi.jpg",
     name: "Luxury Towel Set - Graphite Gray",
     rating: {
       stars: 4.5,
@@ -230,7 +230,7 @@ export const products = [
   },
   {
     id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
-    image: "images/products/liquid-laundry-detergent-plain.jpg",
+    image: "images/pens/zebra.jpg",
     name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
     rating: {
       stars: 4.5,
@@ -241,7 +241,7 @@ export const products = [
   },
   {
     id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
-    image: "images/products/knit-athletic-sneakers-gray.jpg",
+    image: "images/pens/uni-ball.jpg",
     name: "Waterproof Knit Athletic Sneakers - Gray",
     rating: {
       stars: 4,
@@ -252,7 +252,7 @@ export const products = [
   },
   {
     id: "5968897c-4d27-4872-89f6-5bcb052746d7",
-    image: "images/products/women-chiffon-beachwear-coverup-black.jpg",
+    image: "images/pens/hobonichi.jpg",
     name: "Women's Chiffon Beachwear Cover Up - Black",
     rating: {
       stars: 4.5,
@@ -265,7 +265,7 @@ export const products = [
   },
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
-    image: "images/products/round-sunglasses-black.jpg",
+    image: "images/pens/twsbicreme.jpg",
     name: "Round Sunglasses",
     rating: {
       stars: 4.5,
@@ -276,7 +276,7 @@ export const products = [
   },
   {
     id: "04701903-bc79-49c6-bc11-1af7e3651358",
-    image: "images/products/women-beach-sandals.jpg",
+    image: "images/pens/twsbieco.jpg",
     name: "Women's Two Strap Buckle Sandals - Tan",
     rating: {
       stars: 4.5,
@@ -287,7 +287,7 @@ export const products = [
   },
   {
     id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
-    image: "images/products/blackout-curtain-set-beige.webp",
+    image: "images/pens/platinium.jpg",
     name: "Blackout Curtains Set 4-Pack - Beige",
     rating: {
       stars: 4.5,

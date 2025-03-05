@@ -30,12 +30,9 @@ export function renderOrderSummary() {
     const dateString = deliveryDate.format("dddd, MMMM D");
 
     cartSummaryHTML += `
-   <div class="cart-item-container js-cart-item-container js-cart-item-container-${
-     matchingProduct.id
-   }">
-      <div class="delivery-date">Delivery date: ${dateString}
-      </div>
-
+    <div class="cart-item-container js-cart-item-container    js-cart-item-container-${
+      matchingProduct.id
+    }">
       <div class="cart-item-details-grid">
         <img
           class="product-image"
@@ -43,33 +40,42 @@ export function renderOrderSummary() {
         />
 
         <div class="cart-item-details">
-          <div class="product-name">
-            ${matchingProduct.name}
-          </div>
-          <div class="product-price">
-          ${matchingProduct.getPrice()}
-          </div>
-          <div class="product-quantity">
-            <span> Quantity: <span class="quantity-label">${
-              cartItem.quantity
-            }</span> </span>
-            <span class="update-quantity-link link-primary">
-              Update
-            </span>    
+          <div class="name-price">
+            <div class="product-name">
+              ${matchingProduct.name}
+            </div>
 
-            <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${
+            <div class="product-price">
+            ${matchingProduct.getPrice()}
+            </div>
+
+            <div class="product-quantity-container">
+              <select class="">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+      
+          <div class="product-quantity">          
+            <button class="update-quantity-link link-primary">
+             Move to Wishlist
+            </button>    
+
+            <button class="delete-quantity-link link-primary js-delete-link" data-product-id="${
               matchingProduct.id
             }">
-              Delete
-            </span>
+              Remove
+            </button>
           </div>
-        </div>
-
-        <div class="delivery-options">
-          <div class="delivery-options-title">
-            Choose a delivery option:
-          </div>
-          ${deliveryOptionsHTML(matchingProduct, cartItem)}
         </div>
       </div>
     </div>
