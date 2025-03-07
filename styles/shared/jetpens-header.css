@@ -39,25 +39,9 @@
   border: 1px solid white;
 }
 
-.amazon-logo {
+.jetpens-logo {
   width: 100px;
   margin-top: 5px;
-}
-
-.amazon-mobile-logo {
-  display: none;
-}
-
-@media (max-width: 575px) {
-  .amazon-logo {
-    display: none;
-  }
-
-  .amazon-mobile-logo {
-    display: block;
-    height: 35px;
-    margin-top: 5px;
-  }
 }
 
 .jetpens-header-middle-section {

@@ -50,7 +50,8 @@ export function renderOrderSummary() {
             </div>
 
             <div class="product-quantity-container">
-              <select class="">
+              <select class="select-option js-select-option">
+                <option value="0">${cartItem.quantity}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -68,8 +69,8 @@ export function renderOrderSummary() {
           <div class="product-quantity">          
             <button class="update-quantity-link link-primary">
              Move to Wishlist
-            </button>    
-
+            </button>
+          
             <button class="delete-quantity-link link-primary js-delete-link" data-product-id="${
               matchingProduct.id
             }">
@@ -81,43 +82,6 @@ export function renderOrderSummary() {
     </div>
   `;
   });
-
-  function deliveryOptionsHTML(matchingProduct, cartItem) {
-    let html = "";
-
-    deliveryOptions.forEach((deliveryOption) => {
-      const today = dayjs();
-      const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
-      const dateString = deliveryDate.format("dddd, MMMM D");
-
-      const priceString =
-        deliveryOption.priceCents === 0
-          ? "FREE"
-          : `$${formatCurrency(deliveryOption.priceCents)} - `;
-
-      const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
-
-      html += `
-      <div class="delivery-option js-delivery-option" data-product-id="${
-        matchingProduct.id
-      }" data-delivery-option-id="${deliveryOption.id}">
-        <input
-          type="radio"
-          ${isChecked ? "checked" : ""}
-          class="delivery-option-input"
-          name="delivery-option-${matchingProduct.id}"
-        />
-        <div>
-          <div class="delivery-option-date">${dateString}</div>
-          <div class="delivery-option-price">${priceString} Shipping
-          </div>
-        </div>
-      </div>
-    `;
-    });
-
-    return html;
-  }
 
   document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 

@@ -75,13 +75,13 @@
 
 @media (max-width: 1000px) {
   .cart-item-details-grid {
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 180px 1fr;
     row-gap: 30px;
   }
 }
 
 .product-image {
-  max-width: 300px;
+  max-width: 200px;
   max-height: 100px;
 
   /* margin-left: auto;
@@ -94,7 +94,7 @@
 
 .name-price {
   display: grid;
-  grid-template-columns: 1fr 80px 40px;
+  grid-template-columns: 1fr 80px 60px;
   column-gap: 15px;
 }
 
@@ -130,9 +130,12 @@
 .payment-summary-row {
   font-size: 12px;
   font-weight: 700;
-}
-.payment-summary-money {
   color: rgb(177, 39, 4);
+}
+.select-option {
+  background-color: white;
+  width: 60px;
+  border-radius: 4px;
 }
 .place-order-button {
   width: 100%;
