@@ -79,61 +79,6 @@ class Appliance extends Product {
   }
 }
 
-/*
-export let products = [];
-
-export function loadProductsFetch() {
-  const promise = fetch("https://supersimplebackend.dev/products")
-    .then((response) => {
-      return response.json();
-    })
-    .then((productsData) => {
-      products = productsData.map((productDetails) => {
-        if (productDetails.type === "clothing") {
-          return new Clothing(productDetails);
-        }
-        if (productDetails.type === "appliance") {
-          return new Appliance(productDetails);
-        }
-        return new Product(productDetails);
-      });
-
-      console.log("load products");
-    })
-    .catch((error) => {
-      console.log("Unexpected error, Please try again later.");
-    });
-  return promise;
-}
-
-export function loadProducts(fun) {
-  const xhr = new XMLHttpRequest();
-
-  xhr.addEventListener("load", () => {
-    products = JSON.parse(xhr.response).map((productDetails) => {
-      if (productDetails.type === "clothing") {
-        return new Clothing(productDetails);
-      }
-      if (productDetails.type === "appliance") {
-        return new Appliance(productDetails);
-      }
-      return new Product(productDetails);
-    });
-
-    console.log("load products");
-
-    fun();
-  });
-
-  xhr.addEventListener("error", (error) => {
-    console.log("Unexpected error, Please try again later.");
-  });
-
-  xhr.open("GET", "https://supersimplebackend.dev/products");
-  xhr.send();
-}
-*/
-
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -440,6 +385,19 @@ export const products = [
     priceCents: 4599,
     keywords: ["bedroom", "curtains", "home"],
   },
+
+  {
+    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf5969",
+    image: "images/products/6-piece-non-stick-baking-set.webp",
+    name: "Platinum Preppy Fountain Pen - Black - 03 Fine",
+    rating: {
+      stars: 4.5,
+      count: 232,
+    },
+    priceCents: 4599,
+    keywords: ["bedroom", "curtains", "home"],
+  },
+
   {
     id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
     image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
