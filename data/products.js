@@ -34,51 +34,54 @@ class Product {
   getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
-
-  extraInfoHTML() {
-    return "";
-  }
 }
 
-class Clothing extends Product {
-  sizeChartLink;
+export let products = [];
 
-  constructor(productDetails) {
-    super(productDetails);
-    this.sizeChartLink = productDetails.sizeChartLink;
-  }
+export function loadProductsFetch() {
+  const promise = fetch("https://supersimplebackend.dev/products")
+    .then((response) => {
+      return response.json();
+    })
+    .then((productsData) => {
+      products = productsData.map((productDetails) => {
+        if (productDetails.type === "clothing") {
+          return new Clothing(productDetails);
+        }
+        if (productDetails.type === "appliance") {
+          return new Appliance(productDetails);
+        }
+        return new Product(productDetails);
+      });
 
-  extraInfoHTML() {
-    return `
-    <a href="${this.sizeChartLink}" target="_blank">
-    Size chart
-    </a>
-    `;
-  }
+      console.log("load products");
+    })
+    .catch((error) => {
+      console.log("Unexpected error, Please try again later.");
+    });
+  return promise;
 }
 
-class Appliance extends Product {
-  instructionLink;
-  warrantyLink;
+export function loadProducts(fun) {
+  const xhr = new XMLHttpRequest();
 
-  constructor(productDetails) {
-    super(productDetails);
-    this.instructionLink = productDetails.instructionLink;
-    this.warrantyLink = productDetails.warrantyLink;
-  }
+  xhr.addEventListener("load", () => {
+    products = JSON.parse(xhr.response).map((productDetails) => {
+      return new Product(productDetails);
+    });
 
-  extraInfoHTML() {
-    return `
-    <a href="${this.instructionLink}" target="_blank">
-    Instructions
-    </a>
-    <a href="${this.warrantyLink}" target="_blank">
-    Warranty
-    </a>
-    `;
-  }
+    fun();
+  });
+
+  xhr.addEventListener("error", (error) => {
+    console.log("Unexpected error, Please try again later.");
+  });
+
+  xhr.open("GET", "https://supersimplebackend.dev/products");
+  xhr.send();
 }
 
+/*
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -720,11 +723,6 @@ export const products = [
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
 ].map((productDetails) => {
-  if (productDetails.type === "clothing") {
-    return new Clothing(productDetails);
-  }
-  if (productDetails.type === "appliance") {
-    return new Appliance(productDetails);
-  }
   return new Product(productDetails);
 });
+*/
