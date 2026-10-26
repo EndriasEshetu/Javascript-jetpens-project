@@ -10,6 +10,9 @@ export function renderPaymentSummary() {
   cart.forEach((cartItem) => {
     const product = getProduct(cartItem.productId);
     productPriceCents += product.priceCents * cartItem.quantity;
+
+    const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
+    shippingPriceCents += deliveryOption.priceCents;
   });
 
   const paymentSummaryHTML = `  
@@ -17,11 +20,18 @@ export function renderPaymentSummary() {
       Checkout
     </button>
 
-    <div class="payment-summary-row">Subtotal:
-      <span class="payment-summary-money">$${formatCurrency(productPriceCents)}
-      </span>
+    <div class="payment-summary-row">
+      <div class="js-summary-amount"></div>
+      <div class="payment-summary-money">
+        $${formatCurrency(productPriceCents)}
+      </div>
     </div>
   `;
+
+  /*<div class="payment-summary-row">Subtotal:
+      <span class="payment-summary-money">$${formatCurrency(productPriceCents)}
+      </span>
+    </div>*/
 
   document.querySelector(".js-payment-summary").innerHTML = paymentSummaryHTML;
 
@@ -47,4 +57,14 @@ export function renderPaymentSummary() {
 
       window.location.href = "orders.html";
     });
+
+  function updateCart() {
+    const cartQuantity = calculateCartQuantity();
+
+    document.querySelector(
+      ".js-summary-amount"
+    ).innerHTML = `Subtotal (${cartQuantity}):`;
+  }
+
+  updateCart();
 }

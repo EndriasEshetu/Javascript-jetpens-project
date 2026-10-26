@@ -77,10 +77,54 @@ export function renderOrderSummary() {
             </button>
           </div>
         </div>
+
+         <div class="delivery-options">
+          <div class="delivery-options-title">
+            Choose a delivery option:
+          </div>
+          ${deliveryOptionsHTML(matchingProduct, cartItem)}
+        </div>
       </div>
     </div>
   `;
   });
+
+  function deliveryOptionsHTML(matchingProduct, cartItem) {
+    let html = "";
+
+    deliveryOptions.forEach((deliveryOption) => {
+      const today = dayjs();
+      const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+      const dateString = deliveryDate.format("dddd, MMMM D");
+
+      const priceString =
+        deliveryOption.priceCents === 0
+          ? "FREE"
+          : `$${formatCurrency(deliveryOption.priceCents)} - `;
+
+      const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+
+      html += `
+      <div class="delivery-option js-delivery-option" data-product-id="${
+        matchingProduct.id
+      }" data-delivery-option-id="${deliveryOption.id}">
+        <input
+          type="radio"
+          ${isChecked ? "checked" : ""}
+          class="delivery-option-input"
+          name="delivery-option-${matchingProduct.id}"
+        />
+        <div>
+          <div class="delivery-option-date">${dateString}</div>
+          <div class="delivery-option-price">${priceString} Shipping
+          </div>
+        </div>
+      </div>
+    `;
+    });
+
+    return html;
+  }
 
   document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 
